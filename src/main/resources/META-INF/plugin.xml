@@ -1,18 +1,22 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.alsrl8.jetbrainspluginpractice</id>
-    <name>jetbrains-plugin-practice</name>
+    <name>Custom-Goland-Highlighter</name>
     <vendor>alsrl8</vendor>
 
+    <depends>com.intellij.modules.lang</depends>
     <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.plugins.go</depends>
+    <depends>com.intellij.modules.goland </depends>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.alsrl8.jetbrainspluginpractice.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <annotator implementationClass="com.github.alsrl8.jetbrainspluginpractice.annotator.GoTypeHighlighterAnnotator"
+                   language="go"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.alsrl8.jetbrainspluginpractice.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
+
     </applicationListeners>
 </idea-plugin>
